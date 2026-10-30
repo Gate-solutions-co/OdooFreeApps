@@ -1,0 +1,155 @@
+// ==================================================================
+// Collapsible Chatter (Log & History) Styling
+// ==================================================================
+
+// When aside chatter is collapsed
+.o-mail-ChatterContainer.o-aside.o-chatter-collapsed,
+.o-mail-ChatterContainer.o-aside:has(.o-chatter-collapsed) {
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    flex-basis: 0 !important;
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: visible !important;
+    position: relative !important;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), flex-basis 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Ensure aside chatter transitions smoothly when opening/closing
+.o-mail-ChatterContainer.o-aside {
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), flex-basis 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// When collapsed, hide inner chatter contents except the toggle trigger/tab
+.o-mail-Chatter.o-chatter-collapsed {
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    border: none !important;
+
+    > .o-mail-Chatter-top,
+    > .o-mail-Chatter-content {
+        display: none !important;
+    }
+}
+
+// Allow the form sheet container to expand fully when chatter is collapsed
+.o_form_renderer.o-chatter-collapsed .o_form_sheet_bg,
+.o_form_renderer:has(.o-mail-ChatterContainer.o-aside.o-chatter-collapsed) .o_form_sheet_bg,
+.o_form_renderer:has(.o-mail-Chatter.o-chatter-collapsed) .o_form_sheet_bg {
+    max-width: 100% !important;
+    transition: max-width 0.25s ease;
+}
+
+// Collapse Button inside Chatter Top Bar (When Open)
+.o-mail-Chatter-collapse-btn {
+    opacity: 0.75;
+    padding: 4px 8px;
+    margin-left: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.08);
+        transform: translateX(2px);
+    }
+}
+
+// Compact Draggable Side-Tab (Arrow and Icon only)
+.o-chatter-collapsed-tab {
+    position: fixed;
+    right: 0;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 7px 11px 7px 9px;
+    background: #714B67;
+    color: #ffffff;
+    border-radius: 20px 0 0 20px;
+    box-shadow: -2px 3px 12px rgba(0, 0, 0, 0.22);
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+
+    &:hover {
+        background: #5a3b52;
+        padding-left: 12px;
+        box-shadow: -4px 4px 16px rgba(0, 0, 0, 0.32);
+        transform: translateX(-2px);
+    }
+
+    &.is-dragging {
+        cursor: grabbing !important;
+        background: #4e3347 !important;
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.4) !important;
+        transition: none !important; // Instant tracking when dragging
+        transform: scale(1.05) translateX(-2px);
+    }
+
+    .o-chatter-tab-chevron {
+        font-size: 13px;
+        line-height: 1;
+    }
+
+    .o-chatter-tab-icon {
+        font-size: 15px;
+        line-height: 1;
+    }
+
+    .badge {
+        font-size: 10px;
+        padding: 0.2em 0.5em;
+    }
+}
+
+// RTL Support (Arabic UI)
+html[dir="rtl"],
+body.rtl,
+.o_rtl {
+    .o-chatter-collapsed-tab {
+        right: auto !important;
+        left: 0 !important;
+        border-radius: 0 20px 20px 0 !important;
+        box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.22) !important;
+        padding: 7px 9px 7px 11px !important;
+
+        &:hover {
+            padding-right: 12px !important;
+            transform: translateX(2px) !important;
+            box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.32) !important;
+        }
+
+        &.is-dragging {
+            transform: scale(1.05) translateX(2px) !important;
+        }
+
+        .o-chatter-tab-chevron {
+            transform: rotate(180deg);
+        }
+    }
+
+    .o-mail-Chatter-collapse-btn {
+        margin-left: 0 !important;
+        margin-right: 4px !important;
+
+        i {
+            transform: rotate(180deg);
+        }
+
+        &:hover {
+            transform: translateX(-2px);
+        }
+    }
+}
