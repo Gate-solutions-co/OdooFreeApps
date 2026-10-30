@@ -41,7 +41,7 @@ Support: gate.solutions.eg@gmail.com
         ],
     },
     'images': [
-        'static/description/icon.png',
+        'static/description/banner.png',
     ],
     'installable': True,
     'application': False,
