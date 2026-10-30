@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <!-- Add o-chatter-collapsed class to the root chatter div when collapsed -->
+        <xpath expr="//div[hasclass('o-mail-Chatter')]" position="attributes">
+            <attribute name="t-att-class">{
+                'overflow-auto o-scrollbar-thin': props.isChatterAside,
+                'o-chatter-disabled': props.threadId === false,
+                'o-chatter-collapsed': isChatterCollapsed
+            }</attribute>
+        </xpath>
+
+        <!-- Collapse button inside topbar (visible when chatter is open and aside) -->
+        <xpath expr="//div[hasclass('o-mail-Followers')]" position="after">
+            <button t-if="props.isChatterAside"
+                    type="button"
+                    class="btn btn-link text-action o-mail-Chatter-collapse-btn px-2 d-flex align-items-center"
+                    t-att-class="{ 'my-2': !props.compactHeight }"
+                    title="Collapse Log &amp; History"
+                    aria-label="Collapse Log &amp; History"
+                    t-on-click="toggleChatterCollapse">
+                <i class="oi oi-chevron-right fs-6" role="img"/>
+            </button>
+        </xpath>
+
+        <!-- Compact draggable tab (arrow and icon only) when collapsed -->
+        <xpath expr="//div[hasclass('o-mail-Chatter')]" position="inside">
+            <t t-if="isChatterCollapsed">
+                <div class="o-chatter-collapsed-tab d-flex align-items-center justify-content-center"
+                     title="Open Log &amp; History (Drag up/down to move)"
+                     t-att-style="'top: ' + tabTopPosition"
+                     t-on-pointerdown="onTabPointerDown">
+                    <i class="oi oi-chevron-left o-chatter-tab-chevron"/>
+                    <i class="fa fa-comments o-chatter-tab-icon ms-1"/>
+                    <span t-if="activities and activities.length" class="badge rounded-pill bg-warning text-dark ms-1" title="Planned Activities">
+                        <t t-esc="activities.length"/>
+                    </span>
+                </div>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* gse_web_chatter_collapsible
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-30 22:00+0000\n"
+"PO-Revision-Date: 2026-10-30 22:00+0000\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+
+#. module: gse_web_chatter_collapsible
+#: model:ir.module.module,summary:gse_web_chatter_collapsible.module_gse_web_chatter_collapsible
+msgid "Collapse & expand chatter sidebar with draggable vertical tab to maximize form width"
+msgstr "طي وتوسيع الشريط الجانبي للمحادثات مع مقبض عمودي قابل للسحب لتكبير عرض النموذج"
+
+#. module: gse_web_chatter_collapsible
+#: model:ir.module.module,description:gse_web_chatter_collapsible.module_gse_web_chatter_collapsible
+msgid "GSE Collapsible & Draggable Chatter (Log & History) for Odoo 19"
+msgstr "شريط المحادثات والسجل القابل للطي والسحب لـ أودو 19 من GSE"
+
+#. module: gse_web_chatter_collapsible
+#. odoo-javascript
+#: code:addons/gse_web_chatter_collapsible/static/src/chatter/chatter_patch.xml:0
+msgid "Collapse Log & History"
+msgstr "إخفاء السجل والمحادثات"
+
+#. module: gse_web_chatter_collapsible
+#. odoo-javascript
+#: code:addons/gse_web_chatter_collapsible/static/src/chatter/chatter_patch.xml:0
+msgid "Open Log & History"
+msgstr "فتح السجل والمحادثات"
+
+#. module: gse_web_chatter_collapsible
+#. odoo-javascript
+#: code:addons/gse_web_chatter_collapsible/static/src/chatter/chatter_patch.xml:0
+msgid "Open Log & History (Drag up/down to move)"
+msgstr "فتح السجل والمحادثات (اسحب للأعلى/الأسفل لتغيير الموضع)"
